@@ -18,8 +18,10 @@ public class AdminProductController {
         this.productService = productService;
     }
 
-    @PostMapping
-    public ResponseEntity<?> addProduct(@Valid @RequestBody ProductDto dto) {
+    @PostMapping("/{category}")
+    public ResponseEntity<?> addProduct(
+            @PathVariable String category,
+            @Valid @RequestBody ProductDto dto) {
         productService.addProduct(dto);
         return ResponseEntity.ok("Product added successfully");
     }
