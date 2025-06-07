@@ -1,6 +1,6 @@
 package com.ecommerce.E_commerce.service;
 
-import com.ecommerce.E_commerce.category.Category;
+import com.ecommerce.E_commerce.entity.Category;
 import com.ecommerce.E_commerce.product.Product;
 import com.ecommerce.E_commerce.product.ProductDto;
 import com.ecommerce.E_commerce.repository.*;
@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductService {
@@ -83,4 +84,22 @@ public class ProductService {
         product.setUpdatedAt(java.time.LocalDateTime.now());
         productRepository.save(product);
     }
+
+    public List<ProductDto> getAllProducts() {
+        return productRepository.findAll().stream()
+                .map(product -> new ProductDto(
+                        product.getName(),
+                        product.getPrice(),
+                        product.getStock(),
+                        product.getCategory().getName(), // assuming category is an entity
+                        product.getDescription(),
+                        product.getImageUrl()
+                ))
+                .collect(Collectors.toList());
+    }
+
+    public List<Product> getAllProductsClient() {
+        return productRepository.findAll();
+    }
+
 }

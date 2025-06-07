@@ -16,4 +16,12 @@ public class ProductDto {
     private String description;
     private String imageUrl;
 
+    public ProductDto(String name, double price, int stock, String categoryName, String description, String imageUrl) {
+        this.name = name;
+        this.price = price;
+        this.stock = stock;
+        this.categoryName = categoryName;
+        this.description = description;
+        this.imageUrl = imageUrl;
+    }
 }

@@ -1,15 +1,11 @@
 package com.ecommerce.E_commerce.service;
 
-import com.ecommerce.E_commerce.Entity.Client;
 import com.ecommerce.E_commerce.repository.ClientRepo;
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.ecommerce.E_commerce.repository.*;
-import com.ecommerce.E_commerce.Entity.Admin;
+import com.ecommerce.E_commerce.entity.Admin;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 

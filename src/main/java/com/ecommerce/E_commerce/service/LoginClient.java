@@ -1,7 +1,7 @@
 package com.ecommerce.E_commerce.service;
 
-import com.ecommerce.E_commerce.Entity.Admin;
-import com.ecommerce.E_commerce.Entity.Client;
+import com.ecommerce.E_commerce.entity.Admin;
+import com.ecommerce.E_commerce.entity.Client;
 import com.ecommerce.E_commerce.repository.ClientRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

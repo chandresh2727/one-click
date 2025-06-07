@@ -1,4 +1,4 @@
-package com.ecommerce.E_commerce.Entity;
+package com.ecommerce.E_commerce.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;

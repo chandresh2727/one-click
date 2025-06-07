@@ -1,14 +1,12 @@
 package com.ecommerce.E_commerce.controller;
 
-import com.ecommerce.E_commerce.Entity.Admin;
-import com.ecommerce.E_commerce.Entity.Client;
-import com.ecommerce.E_commerce.repository.AdminRepo;
+import com.ecommerce.E_commerce.entity.Admin;
+import com.ecommerce.E_commerce.entity.Client;
 import com.ecommerce.E_commerce.repository.ClientRepo;
 import com.ecommerce.E_commerce.service.LoginClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
 import java.util.List;
 
 @RestController

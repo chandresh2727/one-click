@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/admin/products")
 public class AdminProductController {
@@ -31,4 +33,11 @@ public class AdminProductController {
         productService.deleteProduct(id);
         return ResponseEntity.ok("Product deleted (soft)");
     }
+
+    @GetMapping
+    public ResponseEntity<List<ProductDto>> getAllProducts() {
+        List<ProductDto> products = productService.getAllProducts();
+        return ResponseEntity.ok(products);
+    }
+
 }

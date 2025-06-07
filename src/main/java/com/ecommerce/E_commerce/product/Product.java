@@ -1,7 +1,7 @@
 package com.ecommerce.E_commerce.product;
 
 
-import com.ecommerce.E_commerce.category.Category;
+import com.ecommerce.E_commerce.entity.Category;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

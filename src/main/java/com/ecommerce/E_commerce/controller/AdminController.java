@@ -1,7 +1,9 @@
 package com.ecommerce.E_commerce.controller;
 
-import com.ecommerce.E_commerce.Entity.Admin;
+import com.ecommerce.E_commerce.entity.Admin;
 import com.ecommerce.E_commerce.repository.*;
+import com.ecommerce.E_commerce.service.SelectionService;
+import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +22,13 @@ public class AdminController {
 
     @Autowired
     private ClientRepo clientRepo;
+
+    private final SelectionService selectionService;
+
+    public AdminController(SelectionService selectionService) {
+        this.selectionService = selectionService;
+    }
+
 
     @PostMapping("/login")
     public Object loginAdmin(@RequestBody Admin admin){
@@ -50,7 +59,11 @@ public class AdminController {
          return null;
     }
 
-
+    @PostMapping("/sendDailySummary")
+    public String sendDailySummary() throws MessagingException {
+        selectionService.sendDailySummaryToAdmin();
+        return "Daily summary email sent to admin";
+    }
 
 //    @GetMapping("/all/clients")
 //    public List<Client> allClient(@RequestParam String name,@RequestParam(required = false) String emailId, @RequestParam(required = false) Long phoneNumber){

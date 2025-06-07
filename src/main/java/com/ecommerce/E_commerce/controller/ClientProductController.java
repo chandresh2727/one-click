@@ -29,4 +29,10 @@ public class ClientProductController {
     public List<Product> getByCategory(@PathVariable String categoryName) {
         return productService.getByCategoryName(categoryName);
     }
+
+    @GetMapping
+    public List<Product> getAllProducts() {
+        return productService.getAllProductsClient();
+    }
+
 }
