@@ -2,6 +2,7 @@ package com.ecommerce.E_commerce.service;
 
 import com.ecommerce.E_commerce.entity.Cart;
 import com.ecommerce.E_commerce.entity.Client;
+import com.ecommerce.E_commerce.exception.ResourceNotFoundException;
 import com.ecommerce.E_commerce.product.Product;
 import com.ecommerce.E_commerce.repository.CartRepository;
 import com.ecommerce.E_commerce.repository.ClientRepo;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CartService {
@@ -31,10 +33,10 @@ public class CartService {
 
     public Cart addToCart(String clientName, Long productId, int quantity) {
         Client client = clientRepo.findByClientName(clientName)
-                .orElseThrow(() -> new RuntimeException("Client not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Client '" + clientName + "' does not exist."));
 
         Product product = productRepository.findById(productId)
-                .orElseThrow(() -> new RuntimeException("Product not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Product with ID " + productId + " not found."));
 
         Cart cart = new Cart();
         cart.setClient(client);

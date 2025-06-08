@@ -37,7 +37,7 @@ public class ClientCartSelectionController {
         return selectionRepository.findByClient_ClientName(clientName);
     }
 
-    @PostMapping("/add")
+    @PostMapping("/cart/add")
     public ResponseEntity<Cart> addToCart(
             @RequestParam String clientName,
             @RequestParam Long productId,
